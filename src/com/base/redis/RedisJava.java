@@ -13,7 +13,7 @@ public class RedisJava {
 		System.out.println("Connection to server sucessfully"); 
 		//check whether server is running or not 
 		System.out.println("Server is running: "+jedis.ping()); 
-
+		testeppend(jedis);
 	} 
 	/**
 	 * 测试字符串
@@ -27,6 +27,11 @@ public class RedisJava {
 	}
 	private static void testhashmap() {
 		
+	}
+	private static void testeppend(Jedis jedis) {
+		jedis.set("append", "one"); 
+		System.out.println(jedis.append("append", " two"));
+		System.out.println(jedis.getrange("append", 0, 5));
 	}
 
 }
